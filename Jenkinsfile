@@ -6,8 +6,7 @@ pipeline {
         chmod 744 ./myscript.sh
     }
     stage('Run') {
-        withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: '9ef7f06b-f7a6-4a2f-ad22-e00aff750b9d',
-        usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
+        withCredentials([usernamePassword(credentialsId: '1f162214-505f-4ffb-bc2c-00ee2747efa5', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]) {
             echo 'uname=$USERNAME pwd=$PASSWORD'
             ./myscript.sh ${params.env} $USERNAME:$PASSWORD 2>&1 | tee -a output.txt
             echo '${params.env}'
