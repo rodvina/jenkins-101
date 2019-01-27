@@ -3,7 +3,7 @@ pipeline {
    stages {
     stage('Build') {
         // Run the maven build
-        chmod 744 ./myscript.sh
+        sh label: 'chmod', script: 'chmod 744 ./myscript.sh'
     }
     stage('Run') {
         withCredentials([usernamePassword(credentialsId: '1f162214-505f-4ffb-bc2c-00ee2747efa5', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]) {
