@@ -7,4 +7,5 @@ echo "env = $env";
 
 admin=$2;
 echo "creds=$admin";
-curl -X GET https://api.enterprise.apigee.com/v1/organizations/rodvina-eval/companies -H 'Content-Type: application/json' -u $admin
+response=$(curl -X GET https://api.enterprise.apigee.com/v1/organizations/rodvina-eval/companies -H 'Content-Type: application/json' -u $admin)
+echo "response=$response";
