@@ -9,10 +9,11 @@ pipeline {
     }
     stage('Run') {
         steps {
-            withCredentials([usernamePassword(credentialsId: '1f162214-505f-4ffb-bc2c-00ee2747efa5', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]) {
+            withCredentials([usernamePassword(credentialsId: '9ef7f06b-f7a6-4a2f-ad22-e00aff750b9d', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]) {
                 echo 'uname=$USERNAME pwd=$PASSWORD'
                 sh label: 'run script', script: './myscript.sh params.env $USERNAME:$PASSWORD 2>&1 | tee -a output.txt'
-                echo 'params.env'
+                echo 'params.env
+                '
             }
         }
     }
