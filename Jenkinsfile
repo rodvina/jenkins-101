@@ -3,6 +3,9 @@ pipeline {
    stages {
     stage('Build') {
         steps {
+            script {
+                currentBuild.displayName = "#"+env.BUILD_NUMBER+"["+params.env+"]"
+            }
             // Run the maven build
             sh label: 'chmod', script: 'chmod 744 ./myscript.sh'
         }
