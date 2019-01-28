@@ -20,8 +20,9 @@ pipeline {
     }
     stage('Commit') {
         steps {
-
-            sh script: "git tag -a $params.env -m'Jenkins output'"
+            sh script: "git config --global --list"
+            sh script: "tagname=$params.env+'_'+$env.BUILD_NUMBER"
+            sh script: "git tag -a $tagname -m'Jenkins output'"
             sh script: "git push --tags"
             
         }
