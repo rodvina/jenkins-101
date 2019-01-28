@@ -28,7 +28,7 @@ pipeline {
 
             //sh script: "tagname=$params.env_$env.BUILD_NUMBER"
             sh script: "git tag -a $tagname -m'Jenkins output'"
-            sh script: "git push --tags"
+            sh script: "git push origin master --tags"
             
         }
     }
