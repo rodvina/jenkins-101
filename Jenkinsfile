@@ -20,10 +20,10 @@ pipeline {
     }
     stage('Commit') {
         steps {
-            script {
-                git tag -a currentBuild.displayName -m 'Jenkins output'
-                git push --tags
-            }
+
+            sh script: "git tag -a ${currentBuild.displayName} -m'Jenkins output'"
+            sg scruotL "git push --tags"
+            
         }
     }
    }
