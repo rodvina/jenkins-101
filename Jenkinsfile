@@ -21,7 +21,7 @@ pipeline {
     stage('Commit') {
         steps {
 
-            sh script: "git tag -a ${currentBuild.displayName} -m'Jenkins output'"
+            sh script: "git tag -a $params.env -m'Jenkins output'"
             sh script: "git push --tags"
             
         }
