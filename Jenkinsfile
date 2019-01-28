@@ -23,7 +23,9 @@ pipeline {
             script {
                 tagname = params.env + "_" + env.BUILD_NUMBER
             }
-            //sh script: "git config --global --list"
+            sh script: "git config --global user.email 'rodvina@gmail.com'"
+            sh script: "git config --global user.name 'Rodney Odvina'"
+
             //sh script: "tagname=$params.env_$env.BUILD_NUMBER"
             sh script: "git tag -a $tagname -m'Jenkins output'"
             sh script: "git push --tags"
