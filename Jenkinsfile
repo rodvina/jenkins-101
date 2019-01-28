@@ -18,6 +18,14 @@ pipeline {
             }
         }
     }
+    stage('Commit') {
+        steps {
+            script {
+                git tag -a ${currentBuild.displayName} -m 'Jenkins output'
+                git push --tags
+            }
+        }
+    }
    }
    
 }
