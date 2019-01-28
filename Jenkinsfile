@@ -22,7 +22,7 @@ pipeline {
         steps {
 
             sh script: "git tag -a ${currentBuild.displayName} -m'Jenkins output'"
-            sg scruotL "git push --tags"
+            sh script: "git push --tags"
             
         }
     }
