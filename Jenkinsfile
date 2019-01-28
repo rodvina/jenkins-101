@@ -27,8 +27,12 @@ pipeline {
             sh script: "git config --global user.name 'Rodney Odvina'"
 
             //sh script: "tagname=$params.env_$env.BUILD_NUMBER"
-            sh script: "git tag -a $tagname -m'Jenkins output'"
-            sh script: "git push origin master --tags"
+            sh script: "git tag -a $tagname -m 'Jenkins output'"
+
+            withCredentials([usernamePassword(credentialsId: '9ef7f06b-f7a6-4a2f-ad22-e00aff750b9d', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]) {
+ 
+                sh script: "git push https://$USERNAME:$PASSWORD@github.com/rodvina/jenkins-101.git --tags"
+            }
             
         }
     }
