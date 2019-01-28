@@ -34,7 +34,7 @@ pipeline {
 
             withCredentials([usernamePassword(credentialsId: '9ef7f06b-f7a6-4a2f-ad22-e00aff750b9d', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]) {
                 sh script: "git remote set-url --push origin https://$USERNAME:$PASSWORD@github.com/rodvina/jenkins-101.git"
-                sh script: "git push origin master --tags"
+                sh script: "git push -u origin master --tags"
             }
             
         }
