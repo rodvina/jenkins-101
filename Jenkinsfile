@@ -5,6 +5,7 @@ pipeline {
         steps {
             script {
                 currentBuild.displayName = "#"+env.BUILD_NUMBER+"["+params.env+"]"
+               echo "This is a new change from template"
             }
             // Run the maven build
             // sh label: 'chmod', script: 'chmod 744 ./myscript.sh'
